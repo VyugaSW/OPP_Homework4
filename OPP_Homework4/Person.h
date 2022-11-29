@@ -14,11 +14,7 @@ public:
 		this->surname = surname;
 		this->age = age;
 	}
-	Person() {
-		name = (char*)"No name";
-		surname = (char*)"No surname";
-		age = -1;
-	};
+	Person() {};
 
 	void PrintPerson() {
 		cout << "Name - " << name << endl;
@@ -44,7 +40,7 @@ public:
 		return age;
 	}
 
-	//I can't fix this, but it causes a write error (oshibka zapisi) :)
+	//I can't fix this, but it causes a write error (oshibka zapisi) 
 	void setName() {
 		cin >> name;
 	}
