@@ -9,14 +9,16 @@ class Floor
 {
 private:
 	int size = 0;
-	Apartment* list = new Apartment[size];
+	Apartment* list;
 public:
 	Floor(int size, Apartment* arr) {
 		this->size = size;
+		list = new Apartment[size];
 		list = arr;
 	}
 	Floor() {
 		size = 0;
+		list = new Apartment[size];
 	}
 
 	void PrintApartment() {
@@ -34,6 +36,8 @@ public:
 			tempList[i] = list[i];
 		}
 		tempList[size - 1].AddPerson();
+		delete[] list;
+		list = new Apartment[size];
 		list = tempList;
 	}
 	
@@ -42,6 +46,10 @@ public:
 	}
 	Apartment* getList() {
 		return list;
+	}
+
+	~Floor() {
+		delete[] list;
 	}
 };
 

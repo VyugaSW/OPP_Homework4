@@ -9,14 +9,16 @@ class Apartment
 {
 private:
 	int size;
-	Person* residents = new Person[size];
+	Person* residents;
 public:
 	Apartment(int size, Person* arr) {
 		this->size = size;
+		residents = new Person[size];
 		residents = arr;
 	}
 	Apartment() {
 		size = 0;
+		residents = new Person[size];
 	}
 
 	void PrintPersons() {
@@ -32,6 +34,8 @@ public:
 			tempRes[i] = residents[i];
 		}
 		tempRes[size - 1].NewPerson();
+		delete[] residents;
+		residents = new Person[size];
 		residents = tempRes;
 	}
 	void PrintNumbers() {
